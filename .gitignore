@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PlutoRover.Test/bin/Debug/net5.0
+/PlutoRover.Test/obj
+/PlutoRover/.vs/PlutoRover
+/PlutoRover/bin/Debug/net5.0
+/PlutoRover/obj
