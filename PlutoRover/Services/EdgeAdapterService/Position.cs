@@ -1,4 +1,6 @@
-﻿namespace PlutoRover.Services.EdgeAdapterService
+﻿using Newtonsoft.Json;
+
+namespace PlutoRover.Services.EdgeAdapterService
 {
     public class Position
     {
@@ -7,7 +9,9 @@
             X = x;
             Y = y;
         }
+        [JsonProperty("x")]
         public int X { get; set; }
+        [JsonProperty("y")]
         public int Y { get; set; }
     }
 }

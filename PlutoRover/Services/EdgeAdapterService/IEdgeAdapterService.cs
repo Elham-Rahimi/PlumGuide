@@ -2,6 +2,6 @@
 {
     public interface IEdgeAdapterService
     {
-        void AdjustPosition(Position position);
+        Position AdjustPosition(Position position);
     }
 }

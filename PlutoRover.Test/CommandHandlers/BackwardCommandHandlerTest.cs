@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Moq;
 using PlutoRover.Common;
 using PlutoRover.Models;
 using PlutoRover.Services.CommandHandlers;
 using PlutoRover.Services.EdgeAdapterService;
+using PlutoRover.Services.ObstacleDetecterService;
 using PlutoRover.Services.RoverTranslateService;
 using Xunit;
 
@@ -12,15 +14,15 @@ namespace PlutoRover.Test.CommandHandlers
     {
         private BackwardCommandHandler _backwardCommandHandler;
         private readonly IRoverTranslateService _roverTranslateService;
-        private readonly IEdgeAdapterService _edgeAdapterService;
-        private IConfiguration _configuration;
         public BackwardCommandHandlerTest() 
         {
-            _configuration = new ConfigurationBuilder()
+            var configuration = new ConfigurationBuilder()
                     .AddJsonFile("appsettings.json")
                     .Build();
-            _edgeAdapterService = new EdgeAdapterService(_configuration);
-            _roverTranslateService = new RoverTranslateService(_edgeAdapterService);
+            var edgeAdapterService = new EdgeAdapterService(configuration);
+            var obstacleDetecterService = new ObstacleDetecterService(configuration);
+
+            _roverTranslateService = new RoverTranslateService(edgeAdapterService, obstacleDetecterService);
             _backwardCommandHandler = new BackwardCommandHandler(_roverTranslateService);
         }
 

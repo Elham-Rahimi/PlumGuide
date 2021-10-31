@@ -13,11 +13,12 @@ namespace PlutoRover.Services.EdgeAdapterService
             gridSize = int.Parse( _configuration["PlutoRover:GridSize"]);
         }
 
-        public void AdjustPosition(Position position)
+        public Position AdjustPosition(Position position)
         {
             position.X = Wrap(position.X);
             position.Y = Wrap(position.Y);
-     
+
+            return position;
         }
 
         private int Wrap(int cordinate)

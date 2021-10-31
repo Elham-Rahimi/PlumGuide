@@ -40,9 +40,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -67,9 +67,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -94,9 +94,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -121,9 +121,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -150,9 +150,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -177,9 +177,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -204,9 +204,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -231,9 +231,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -260,9 +260,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -287,9 +287,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -314,9 +314,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -341,9 +341,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -370,9 +370,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -397,9 +397,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -424,9 +424,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -451,9 +451,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -480,9 +480,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -507,9 +507,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -534,9 +534,9 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
@@ -561,13 +561,52 @@ namespace PlutoRover.Test
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var currentLocationJson = await response.Content.ReadAsStringAsync();
-            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+            var currentLocation = JsonConvert.DeserializeObject<PlutoRoverResult>(currentLocationJson);
 
-            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal((char)expected.Direction, currentLocation.Direction);
             Assert.Equal(expected.PositionX, currentLocation.PositionX);
             Assert.Equal(expected.PositionY, currentLocation.PositionY);
         }
 
+        #endregion
+
+        #region Obstacle detect test
+        [Fact]
+        public async Task GIVEN_obstacleAt_91N_WHEN_apiCalled_THEN_reportObstacle()
+        {
+            //Arrange
+            int roverPositionX = 9;
+            int roverPositionY = 0;
+            var roverDirection = "N";
+            var commands = "F";
+
+            var requestUrl = GenerateRequestUrl(roverPositionX, roverPositionY, roverDirection, commands);
+
+            //Act
+            var response = await _client.GetAsync(requestUrl);
+
+            //Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
+        }
+        [Fact]
+        public async Task GIVEN_obstacleAt_62N_WHEN_apiCalled_THEN_reportObstacle()
+        {
+            //Arrange
+            int roverPositionX = 6;
+            int roverPositionY = 0;
+            var roverDirection = "N";
+            var commands = "FF";
+
+            var requestUrl = GenerateRequestUrl(roverPositionX, roverPositionY, roverDirection, commands);
+
+            //Act
+            var response = await _client.GetAsync(requestUrl);
+
+            //Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.Forbidden, response.StatusCode);
+        }
         #endregion
 
         #region Exceptions

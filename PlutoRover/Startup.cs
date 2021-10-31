@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using PlutoRover.Infrustructures.Middlewares;
 using PlutoRover.Services.EdgeAdapterService;
 using PlutoRover.Services.MovementCommandHandler;
+using PlutoRover.Services.ObstacleDetecterService;
 using PlutoRover.Services.RoverTranslateService;
 
 namespace PlutoRover
@@ -24,6 +25,7 @@ namespace PlutoRover
             services.AddTransient<IMovementCommandHandlerFactory, MovementCommandHandlerFactory>();
             services.AddTransient<IEdgeAdapterService, EdgeAdapterService>();
             services.AddTransient<IRoverTranslateService, RoverTranslateService>();
+            services.AddTransient<IObstacleDetecterService, ObstacleDetecterService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

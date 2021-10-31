@@ -27,7 +27,12 @@ namespace PlutoRover.Controllers
                 _movementCommandHandlerFactory.Execute(command, roverLocation);
             }
 
-            return Ok(roverLocation);
+            return Ok(new PlutoRoverResult()
+            {
+                PositionX = roverLocation.PositionX,
+                PositionY = roverLocation.PositionY,
+                Direction = (char)roverLocation.Direction
+            }); ;
         }
     }
 }
