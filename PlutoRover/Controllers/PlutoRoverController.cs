@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PlutoRover.Common;
 using PlutoRover.Models;
-using PlutoRover.Services.DirectionDetector;
-using PlutoRover.Services.TransportCommandHandler;
+using PlutoRover.Services.MovementCommandHandler;
 
 namespace PlutoRover.Controllers
 {
@@ -10,21 +9,22 @@ namespace PlutoRover.Controllers
     [ApiController]
     public class PlutoRoverController : ControllerBase
     {
-        private readonly ITransportCommandHandler _transportCommandHandler;
+        private readonly IMovementCommandHandlerFactory _movementCommandHandlerFactory;
 
-        public PlutoRoverController(ITransportCommandHandler transportCommandHandler)
+        public PlutoRoverController(IMovementCommandHandlerFactory movementCommandHandlerFactory)
         {
-            _transportCommandHandler = transportCommandHandler;
+            _movementCommandHandlerFactory = movementCommandHandlerFactory;
         }
 
         [HttpGet]
         [Route("move")]
-        public ActionResult<RoverLocation> Move(int x, int y, string direction, string commands)
+        public ActionResult<RoverLocation> Move(int x, int y, char direction, string commands)
         {
-            var roverLocation = new RoverLocation(x, y, direction);
+            var roverLocation = new RoverLocation(x, y, (CardinalDirection)direction);
+
             foreach (var command in commands.ToCharArray())
             {
-                _transportCommandHandler.Execute(roverLocation, command.ToString());
+                _movementCommandHandlerFactory.Execute(command, roverLocation);
             }
 
             return Ok(roverLocation);

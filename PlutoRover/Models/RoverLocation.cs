@@ -1,14 +1,17 @@
 ﻿using Newtonsoft.Json;
+using PlutoRover.Common;
+using System;
 
 namespace PlutoRover.Models
 {
     public class RoverLocation
     {
-        public RoverLocation(int x, int y, string direction)
+        [JsonConstructor]
+        public RoverLocation(int x, int y, CardinalDirection direction)
         {
+            Direction = direction;
             PositionX = x;
             PositionY = y;
-            Direction = direction;
         }
         [JsonProperty("positionX")]
         public int PositionX { get; set; }
@@ -17,6 +20,19 @@ namespace PlutoRover.Models
         public int PositionY { get; set; }
 
         [JsonProperty("direction")]
-        public string Direction { get; set; }
+        public CardinalDirection Direction { get; set; }
+
+        public void MoveTo(int x, int y)
+        {
+            PositionX = x;
+            PositionY = y;
+        }
+
+        public void TurnTo(CardinalDirection direction)
+        {
+            Direction = direction;
+        }
+
+      
     }
 }
