@@ -1,23 +1,31 @@
 ﻿using PlutoRover.Common;
 using PlutoRover.Models;
+using PlutoRover.Services.EdgeAdapterService;
+using PlutoRover.Services.RoverTranslateService;
 
 namespace PlutoRover.Services.CommandHandlers
 {
     public class ForwardCommandHandler : ICommandHandler
     {
+        private readonly IRoverTranslateService _roverTranslateService;
+        public ForwardCommandHandler(IRoverTranslateService roverTranslateService)
+        {
+            _roverTranslateService = roverTranslateService;
+        }
         public void execute(RoverLocation roverLocation)
         {
-            var positionY = roverLocation.PositionY;
-            var positionX = roverLocation.PositionX;
+            var position = new Position(roverLocation.PositionX, roverLocation.PositionY);
+
             if (roverLocation.Direction == CardinalDirection.North)
-                positionY +=1;
+                position.Y +=1;
             if (roverLocation.Direction == CardinalDirection.South)
-                positionY -= 1;
+                position.Y -= 1;
             if (roverLocation.Direction == CardinalDirection.West)
-                positionX -= 1;
+                position.X -= 1;
             if (roverLocation.Direction == CardinalDirection.East)
-                positionX += 1;
-            roverLocation.MoveTo(positionX, positionY);
+                position.X += 1;
+
+            _roverTranslateService.Move(roverLocation, position);
         }
     }
 }

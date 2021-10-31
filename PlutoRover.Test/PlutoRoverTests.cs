@@ -459,6 +459,117 @@ namespace PlutoRover.Test
         }
         #endregion
 
+        #region EdgeAdaption tests
+        [Fact]
+        public async Task GIVEN_backwardCommandOn_00N_WHEN_apiCalled_THEN_retunMaxGridY()
+        {
+            //Arrange
+            int roverPositionX = 0;
+            int roverPositionY = 0;
+            var roverDirection = "N";
+            var commands = "B";
+            var expected = new RoverLocation(0, 99, CardinalDirection.North);
+
+            var requestUrl = GenerateRequestUrl(roverPositionX, roverPositionY, roverDirection, commands);
+
+            //Act
+            var response = await _client.GetAsync(requestUrl);
+
+            //Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var currentLocationJson = await response.Content.ReadAsStringAsync();
+            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+
+            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal(expected.PositionX, currentLocation.PositionX);
+            Assert.Equal(expected.PositionY, currentLocation.PositionY);
+        }
+
+        [Fact]
+        public async Task GIVEN_backwardCommandOn_00N_WHEN_apiCalled_THEN_retunMaxGridX()
+        {
+            //Arrange
+            int roverPositionX = 0;
+            int roverPositionY = 0;
+            var roverDirection = "E";
+            var commands = "B";
+            var expected = new RoverLocation(99, 0, CardinalDirection.East);
+
+            var requestUrl = GenerateRequestUrl(roverPositionX, roverPositionY, roverDirection, commands);
+
+            //Act
+            var response = await _client.GetAsync(requestUrl);
+
+            //Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var currentLocationJson = await response.Content.ReadAsStringAsync();
+            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+
+            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal(expected.PositionX, currentLocation.PositionX);
+            Assert.Equal(expected.PositionY, currentLocation.PositionY);
+        }
+
+        [Fact]
+        public async Task GIVEN_forwardCommandOn_99_99_N_WHEN_apiCalled_THEN_xvalueis0()
+        {
+            //Arrange
+            int roverPositionX = 99;
+            int roverPositionY = 99;
+            var roverDirection = "N";
+            var commands = "F";
+            var expected = new RoverLocation(99, 0, CardinalDirection.North);
+
+            var requestUrl = GenerateRequestUrl(roverPositionX, roverPositionY, roverDirection, commands);
+
+            //Act
+            var response = await _client.GetAsync(requestUrl);
+
+            //Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var currentLocationJson = await response.Content.ReadAsStringAsync();
+            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+
+            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal(expected.PositionX, currentLocation.PositionX);
+            Assert.Equal(expected.PositionY, currentLocation.PositionY);
+        }
+
+        [Fact]
+        public async Task GIVEN_forwardCommandOn_99_99_E_WHEN_apiCalled_THEN_xvalueis0()
+        {
+            //Arrange
+            int roverPositionX = 99;
+            int roverPositionY = 99;
+            var roverDirection = "E";
+            var commands = "F";
+            var expected = new RoverLocation(0, 99, CardinalDirection.East);
+
+            var requestUrl = GenerateRequestUrl(roverPositionX, roverPositionY, roverDirection, commands);
+
+            //Act
+            var response = await _client.GetAsync(requestUrl);
+
+            //Assert
+            Assert.NotNull(response);
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+
+            var currentLocationJson = await response.Content.ReadAsStringAsync();
+            var currentLocation = JsonConvert.DeserializeObject<RoverLocation>(currentLocationJson);
+
+            Assert.Equal(expected.Direction, currentLocation.Direction);
+            Assert.Equal(expected.PositionX, currentLocation.PositionX);
+            Assert.Equal(expected.PositionY, currentLocation.PositionY);
+        }
+
+        #endregion
+
         #region Exceptions
         [Fact]
         public async Task GIVEN_invalidcommand_WHEN_apiCalled_THEN_NotFound()

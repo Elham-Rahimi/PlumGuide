@@ -1,6 +1,9 @@
-﻿using PlutoRover.Common;
+﻿using Microsoft.Extensions.Configuration;
+using PlutoRover.Common;
 using PlutoRover.Models;
 using PlutoRover.Services.CommandHandlers;
+using PlutoRover.Services.EdgeAdapterService;
+using PlutoRover.Services.RoverTranslateService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +16,17 @@ namespace PlutoRover.Test.CommandHandlers
     public class ForwardCommandHandlerTest
     {
         private ForwardCommandHandler _forwardCommandHandler;
+        private readonly IEdgeAdapterService _edgeAdapterService;
+        private readonly IRoverTranslateService _roverTranslateService;
+        private IConfiguration _configuration;
         public ForwardCommandHandlerTest()
         {
-            _forwardCommandHandler = new ForwardCommandHandler();
+            _configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+            _edgeAdapterService = new EdgeAdapterService(_configuration);
+            _roverTranslateService = new RoverTranslateService(_edgeAdapterService);
+            _forwardCommandHandler = new ForwardCommandHandler(_roverTranslateService);
         }
 
         [Fact]

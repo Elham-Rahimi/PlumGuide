@@ -2,6 +2,7 @@
 using PlutoRover.Models;
 using PlutoRover.Services.CommandHandlers;
 using PlutoRover.Services.MovementCommandHandler.Exceptions;
+using PlutoRover.Services.RoverTranslateService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,10 @@ namespace PlutoRover.Services.MovementCommandHandler
 {
     public class MovementCommandHandlerFactory : IMovementCommandHandlerFactory
     {
-        public MovementCommandHandlerFactory()
+        private readonly IRoverTranslateService _roverTranslateService;
+        public MovementCommandHandlerFactory(IRoverTranslateService roverTranslateService)
         {
-
+            _roverTranslateService = roverTranslateService;
         }
 
         public void Execute(char command, RoverLocation roverLocation)
@@ -27,12 +29,12 @@ namespace PlutoRover.Services.MovementCommandHandler
             ICommandHandler commandHandler = null;
             if (movementCommand == MovementCommand.Forward)
             {
-                commandHandler = new ForwardCommandHandler();
+                commandHandler = new ForwardCommandHandler(_roverTranslateService);
             }
 
             if (movementCommand == MovementCommand.Backward)
             {
-                commandHandler = new BackwardCommandHandler();
+                commandHandler = new BackwardCommandHandler(_roverTranslateService);
             }
 
             if (movementCommand == MovementCommand.Right)

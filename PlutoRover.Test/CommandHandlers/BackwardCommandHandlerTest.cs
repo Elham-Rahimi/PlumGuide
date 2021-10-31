@@ -1,6 +1,9 @@
-﻿using PlutoRover.Common;
+﻿using Microsoft.Extensions.Configuration;
+using PlutoRover.Common;
 using PlutoRover.Models;
 using PlutoRover.Services.CommandHandlers;
+using PlutoRover.Services.EdgeAdapterService;
+using PlutoRover.Services.RoverTranslateService;
 using Xunit;
 
 namespace PlutoRover.Test.CommandHandlers
@@ -8,9 +11,17 @@ namespace PlutoRover.Test.CommandHandlers
     public class BackwardCommandHandlerTest
     {
         private BackwardCommandHandler _backwardCommandHandler;
-        public BackwardCommandHandlerTest()
+        private readonly IRoverTranslateService _roverTranslateService;
+        private readonly IEdgeAdapterService _edgeAdapterService;
+        private IConfiguration _configuration;
+        public BackwardCommandHandlerTest() 
         {
-            _backwardCommandHandler = new BackwardCommandHandler();
+            _configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+            _edgeAdapterService = new EdgeAdapterService(_configuration);
+            _roverTranslateService = new RoverTranslateService(_edgeAdapterService);
+            _backwardCommandHandler = new BackwardCommandHandler(_roverTranslateService);
         }
 
         [Fact]

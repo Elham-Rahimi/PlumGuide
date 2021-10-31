@@ -33,6 +33,5 @@ namespace PlutoRover.Models
             Direction = direction;
         }
 
-      
     }
 }
